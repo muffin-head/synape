@@ -7,7 +7,7 @@
     },
     "_artifactsLocationSASToken": {
       "type": "securestring",
-      "defaultValue": ""
+ 
     },
     "location": {
       "type": "string",
