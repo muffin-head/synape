@@ -2,7 +2,11 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-  
+
+    "_artifactsLocationSASToken": {
+      "type": "securestring",
+      "defaultValue": ""
+    },
     "location": {
       "type": "string",
       "defaultValue": "[resourceGroup().location]",
@@ -268,8 +272,9 @@
       "properties": {
         "mode": "Incremental",
         "templatelink": {
-          "uri": "[uri(deployment().properties.templateLink.uri, 'nestedtemplates/pausetemplate.json')]"
-          "parameters": {
+          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'nestedtemplates/pausetemplate.json'), parameters('_artifactsLocationSASToken'))]",
+        },
+        "parameters": {
           "logicAppName": {
             "value": "[variables('logicApps')[0]]"
           },
@@ -301,7 +306,7 @@
       "properties": {
         "mode": "Incremental",
         "templatelink": {
-          "uri": "[uri(deployment().properties.templateLink.uri, 'nestedtemplates/resumetemplate.json')]"
+          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'nestedtemplates/resumetemplate.json'), parameters('_artifactsLocationSASToken'))]",
         },
         "parameters": {
           "logicAppName": {
@@ -497,7 +502,7 @@
       "properties": {
         "mode": "Incremental",
         "templatelink": {
-          "uri": "[uri(deployment().properties.templateLink.uri, 'nestedtemplates/logicapproleassignments.json')]"
+          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'nestedtemplates/logicapproleassignments.json'), parameters('_artifactsLocationSASToken'))]",
         },
         "parameters": {
           "logicAppName": {
@@ -517,7 +522,7 @@
       "properties": {
         "mode": "Incremental",
         "templatelink": {
-          "uri": "[uri(deployment().properties.templateLink.uri, 'nestedtemplates/logicapproleassignments.json')]"
+          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'nestedtemplates/logicapproleassignments.json'), parameters('_artifactsLocationSASToken'))]",
         },
         "parameters": {
           "logicAppName": {
