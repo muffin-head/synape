@@ -4,9 +4,12 @@
   "parameters": {
     "_artifactsLocation": {
       "type": "string",
+       "defaultValue": ""
     },
+    
     "_artifactsLocationSASToken": {
       "type": "securestring",
+       "defaultValue": ""
  
     },
     "location": {
