@@ -3,13 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "companyTla": {
-            "value": "GEN-UNIQUE-3"
+            "value": "synapse2509"
         },
         "sqlAdministratorLogin": {
-            "value": "GEN-UNIQUE-6"
+            "value": "tanmay250998"
         },
         "sqlAdministratorLoginPassword": {
-            "value": "GEN-PASSWORD"
+            "value": "Szmlzx14?!"
         }
     }
 }
