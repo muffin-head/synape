@@ -275,6 +275,7 @@
       "properties": {
         "mode": "Incremental",
         "templatelink": {
+          "relativePath":"nestedtemplates/pausetemplate.json",
           "uri": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/pausetemplate.json', parameters('_artifactsLocationSASToken')))]"
         },
         "parameters": {
@@ -309,6 +310,7 @@
       "properties": {
         "mode": "Incremental",
         "templatelink": {
+          "relativePath":"nestedtemplates/resumetemplate.json",
           "uri": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/resumetemplate.json', parameters('_artifactsLocationSASToken')))]"
         },
         "parameters": {
@@ -505,6 +507,8 @@
       "properties": {
         "mode": "Incremental",
         "templatelink": {
+          
+          "relativePath":"nestedtemplates/logicapproleassignments.json",
           "uri": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/logicapproleassignments.json', parameters('_artifactsLocationSASToken')))]"
         },
         "parameters": {
@@ -525,6 +529,7 @@
       "properties": {
         "mode": "Incremental",
         "templatelink": {
+          "relativePath":"nestedtemplates/logicapproleassignments.json",
           "uri": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/logicapproleassignments.json', parameters('_artifactsLocationSASToken')))]"
         },
         "parameters": {
