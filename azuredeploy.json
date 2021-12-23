@@ -256,6 +256,10 @@
     }
   },
   "variables": {
+    "NestOneTemplateFolder": "nestedtemplates",
+    "logicapproleassignments": "logicapproleassignments.json",
+    "pausetemplate": "pausetemplate.json.json",
+    "resumetemplate": "resumetemplate.json"
     "synapseName": "[toLower(concat(parameters('companyTla'),parameters('deploymentType')))]",
     "dlsName": "[toLower(concat('dls',parameters('companyTla'),parameters('deploymentType')))]",
     "dlsFsName": "[toLower(concat(variables('dlsName'),'fs1'))]",
@@ -275,7 +279,7 @@
       "properties": {
         "mode": "Incremental",
         "templatelink": {
-          "uri": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/pausetemplate.json', parameters('_artifactsLocationSASToken')))]"
+          "uri": "[concat(parameters('_artifactsLocation'), '/', variables('OneTemplateFolder'), '/', variables('pausetemplate'), parameters('_artifactsLocationSasToken'))]",
         },
         "parameters": {
           "logicAppName": {
@@ -309,7 +313,8 @@
       "properties": {
         "mode": "Incremental",
         "templatelink": {
-          "uri": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/resumetemplate.json', parameters('_artifactsLocationSASToken')))]"
+        "uri": "[concat(parameters('_artifactsLocation'), '/', variables('OneTemplateFolder'), '/', variables('resumetemplate'), parameters('_artifactsLocationSasToken'))]",
+
         },
         "parameters": {
           "logicAppName": {
@@ -505,7 +510,7 @@
       "properties": {
         "mode": "Incremental",
         "templatelink": {
-          "uri": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/logicapproleassignments.json', parameters('_artifactsLocationSASToken')))]"
+        "uri": "[concat(parameters('_artifactsLocation'), '/', variables('OneTemplateFolder'), '/', variables('logicapproleassignments'), parameters('_artifactsLocationSasToken'))]",
         },
         "parameters": {
           "logicAppName": {
@@ -525,7 +530,7 @@
       "properties": {
         "mode": "Incremental",
         "templatelink": {
-          "uri": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/logicapproleassignments.json', parameters('_artifactsLocationSASToken')))]"
+        "uri": "[concat(parameters('_artifactsLocation'), '/', variables('OneTemplateFolder'), '/', variables('logicapproleassignments'), parameters('_artifactsLocationSasToken'))]",
         },
         "parameters": {
           "logicAppName": {
