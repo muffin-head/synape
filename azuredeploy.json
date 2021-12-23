@@ -272,7 +272,7 @@
       "properties": {
         "mode": "Incremental",
         "templatelink": {
-          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'nestedtemplates/pausetemplate.json'), parameters('_artifactsLocationSASToken'))]",
+          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'nestedtemplates/pausetemplate.json'), parameters('_artifactsLocationSASToken'))]"
         },
         "parameters": {
           "logicAppName": {
@@ -306,7 +306,7 @@
       "properties": {
         "mode": "Incremental",
         "templatelink": {
-          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'nestedtemplates/resumetemplate.json'), parameters('_artifactsLocationSASToken'))]",
+          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'nestedtemplates/resumetemplate.json'), parameters('_artifactsLocationSASToken'))]"
         },
         "parameters": {
           "logicAppName": {
@@ -502,7 +502,7 @@
       "properties": {
         "mode": "Incremental",
         "templatelink": {
-          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'nestedtemplates/logicapproleassignments.json'), parameters('_artifactsLocationSASToken'))]",
+          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'nestedtemplates/logicapproleassignments.json'), parameters('_artifactsLocationSASToken'))]"
         },
         "parameters": {
           "logicAppName": {
@@ -522,7 +522,7 @@
       "properties": {
         "mode": "Incremental",
         "templatelink": {
-          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'nestedtemplates/logicapproleassignments.json'), parameters('_artifactsLocationSASToken'))]",
+          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'nestedtemplates/logicapproleassignments.json'), parameters('_artifactsLocationSASToken'))]"
         },
         "parameters": {
           "logicAppName": {
