@@ -1,5 +1,5 @@
 on: [push]
-name: AzureARMLandingZoneIntern
+name: synapse
 
 jobs:
   build-and-deploy:
