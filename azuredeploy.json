@@ -264,8 +264,8 @@
     "sparkPoolName": "[toLower('synasp1')]"
   },
   "resources": [
-    
    
+    
     {
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2019-06-01",
