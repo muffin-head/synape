@@ -261,81 +261,11 @@
     "dlsFsName": "[toLower(concat(variables('dlsName'),'fs1'))]",
     "sqlPoolName": "[toLower(concat(variables('workspaceName'),'p1'))]",
     "workspaceName": "[toLower(concat(variables('synapseName'),'ws1'))]",
-    "sparkPoolName": "[toLower('synasp1')]",
-    "logicApps": [
-      "SynapsePauseSchedule",
-      "SynapseResumeSchedule"
-    ]
+    "sparkPoolName": "[toLower('synasp1')]"
   },
   "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
-      "name": "logicAppPauseDeployment",
-      "properties": {
-        "mode": "Incremental",
-        "templatelink": {
-          "relativePath":"nestedtemplates/pausetemplate.json",
-        },
-        "parameters": {
-          "logicAppName": {
-            "value": "[variables('logicApps')[0]]"
-          },
-          "Frequency": {
-            "value": "[parameters('Frequency')]"
-          },
-          "companyTla": {
-            "value": "[parameters('companyTla')]"
-          },
-          "deploymentType": {
-            "value": "[parameters('deploymentType')]"
-          },
-          "TIME_ZONE": {
-            "value": "[parameters('TIME_ZONE')]"
-          },
-          "PauseTime": {
-            "value": "[parameters('PauseTime')]"
-          },
-          "location": {
-            "value": "[parameters('location')]"
-          }
-        }
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
-      "name": "logicAppResumeDeployment",
-      "properties": {
-        "mode": "Incremental",
-        "templatelink": {
-          "relativePath":"nestedtemplates/resumetemplate.json",
-        },
-        "parameters": {
-          "logicAppName": {
-            "value": "[variables('logicApps')[1]]"
-          },
-          "Frequency": {
-            "value": "[parameters('Frequency')]"
-          },
-          "companyTla": {
-            "value": "[parameters('companyTla')]"
-          },
-          "deploymentType": {
-            "value": "[parameters('deploymentType')]"
-          },
-          "TIME_ZONE": {
-            "value": "[parameters('TIME_ZONE')]"
-          },
-          "ResumeTime": {
-            "value": "[parameters('ResumeTime')]"
-          },
-          "location": {
-            "value": "[parameters('location')]"
-          }
-        }
-      }
-    },
+    
+   
     {
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2019-06-01",
@@ -492,47 +422,6 @@
         "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', 'ba92f5b4-2d11-453d-a403-e96b0029c9fe')]",
         "principalId": "[reference(resourceId('Microsoft.Synapse/workspaces', variables('workspaceName')), '2019-06-01-preview', 'Full').identity.principalId]",
         "principalType": "ServicePrincipal"
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
-      "name": "MSIRBACOnResourceGroup0",
-      "dependsOn": [
-        "logicAppResumeDeployment",
-        "logicAppPauseDeployment"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "templatelink": {
-          
-          "relativePath":"nestedtemplates/logicapproleassignments.json",
-        },
-        "parameters": {
-          "logicAppName": {
-            "value": "[variables('logicApps')[0]]"
-          }
-        }
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
-      "name": "MSIRBACOnResourceGroup1",
-      "dependsOn": [
-        "logicAppResumeDeployment",
-        "logicAppPauseDeployment"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "templatelink": {
-          "relativePath":"nestedtemplates/logicapproleassignments.json",
-        },
-        "parameters": {
-          "logicAppName": {
-            "value": "[variables('logicApps')[1]]"
-          }
-        }
       }
     }
   ]
